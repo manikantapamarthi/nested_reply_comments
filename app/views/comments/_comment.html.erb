@@ -1,0 +1,14 @@
+<article data-controller="comments">
+  <p><%= comment.content %></p>
+  <small>by <%= comment.user.email %></small>
+  <%= link_to "reply", "javasctipt:void(0)", "data-comment": "comment", "data-action": "click->comments#reply", "data-comments-target": "reply" %>
+  
+  <div class="comments-form">
+    <%= render partial: 'comments/form', locals: { post: comment.post, parent: comment.id }  %>
+  </div>
+<hr>
+  <div class="sub-comment">
+    <%= render comment.comments %>
+  </div>
+</article>
+

@@ -1,0 +1,14 @@
+<h2>Add a comment:</h2>
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <% if parent.present? %>
+    <%= form.hidden_field :parent_id, value: parent %>
+  <% end %>
+    
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
